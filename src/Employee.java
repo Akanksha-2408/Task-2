@@ -1,92 +1,108 @@
+import java.util.Objects;
+
 public class Employee {
-    public static void main(String[] args) {
 
-        System.out.println("\n\n---Primitive data types---");
-        byte employeeId = 101;
-        short departmentCode = 2101;
-        int age = 35;
-        long annualSalary = 12_00_000L;
-        float workingHours = 8.5f;
-        double monthlySalary = 100000.75;
-        char grade = 'A';
-        boolean isPermanent = true;
+        byte employeeId;
+        short departmentCode;
+        int age;
+        long annualSalary;
+        float workingHours;
+        double monthlySalary;
+        char grade;
+        boolean isPermanent;
 
-        System.out.println("\nEmployee Details:");
-        System.out.println("ID (byte): " + employeeId);
-        System.out.println("Department Code (short): " + departmentCode);
-        System.out.println("Age (int): " + age);
-        System.out.println("Annual Salary (long): " + annualSalary);
-        System.out.println("Daily Working Hours (float): " + workingHours);
-        System.out.println("Monthly Salary (double): " + monthlySalary);
-        System.out.println("Grade (char): " + grade);
-        System.out.println("Is Permanent (boolean): " + isPermanent);
+    //Constructor
 
-        System.out.println("\n---Type Casting---");
-        //Implicit casting
-        double bonus = age;  // int to double
-        System.out.println("\nBonus(Implicit cast int to double): " + bonus);
+    public Employee() {}
 
-        // Explicit casting (narrowing conversion)
-        try {
-            int roundedSalary = (int) monthlySalary;  // double to int
-            System.out.println("Monthly Salary (rounded- explicit cast" + roundedSalary);
-        } catch (Exception e) {
-            System.out.println("Error in casting monthly salary: " + e.getMessage());
-        }
+    public Employee(byte employeeId, short departmentCode, int age, long annualSalary, float workingHours, double monthlySalary, char grade, boolean isPermanent) {
+        this.employeeId = employeeId;
+        this.departmentCode = departmentCode;
+        this.age = age;
+        this.annualSalary = annualSalary;
+        this.workingHours = workingHours;
+        this.monthlySalary = monthlySalary;
+        this.grade = grade;
+        this.isPermanent = isPermanent;
+    }
 
-        // Casting beyond range (with data loss)
-        try {
-            byte overflowedId = (byte) 130;  // byte range is -128 to 127
-            System.out.println("Casted employee ID with overflow: " + overflowedId);
-        } catch (Exception e) {
-            System.out.println("Error in overflowed casting: " + e.getMessage());
-        }
+    //Getters and Setters
+    public byte getEmployeeId() {
+        return employeeId;
+    }
 
-        System.out.println("\n---Wrapper Class---");
-        // Wrapper class usage
-        Integer ageObj = Integer.valueOf(age);
-        Double salaryObj = Double.valueOf(monthlySalary);
-        Boolean statusObj = Boolean.valueOf(isPermanent);
-        Character gradeObj = Character.valueOf(grade);
+    public void setEmployeeId(byte employeeId) {
+        this.employeeId = employeeId;
+    }
 
-        System.out.println("\nWrapped Age (Integer): " + ageObj);
-        System.out.println("Wrapped Salary (Double): " + salaryObj);
-        System.out.println("Wrapped Status (Boolean): " + statusObj);
-        System.out.println("Wrapped Grade (Character): " + gradeObj);
+    public short getDepartmentCode() {
+        return departmentCode;
+    }
 
-        System.out.println("\n---Object Casting---");
-        // Object casting example
-        Object obj = "5000";
+    public void setDepartmentCode(short departmentCode) {
+        this.departmentCode = departmentCode;
+    }
 
-        try {
-            String str = (String) obj;
-            System.out.println("\nObject cast to String: " + str);
+    public int getAge() {
+        return age;
+    }
 
-            // Trying invalid cast
-            Integer salaryCast = (Integer) obj;  // Will throw ClassCastException
-            System.out.println("Cast to Integer (invalid): " + salaryCast);
-        } catch (ClassCastException e) {
-            System.out.println("Caught ClassCastException: " + e.getMessage());
-        }
+    public void setAge(int age) {
+        this.age = age;
+    }
 
-        System.out.println("\n---String Parsing---");
+    public long getAnnualSalary() {
+        return annualSalary;
+    }
 
-        try {
-            String bonusStr = "5000";
-            int parsedBonus = Integer.parseInt(bonusStr);
-            System.out.println("Parsed Bonus (int): " + parsedBonus);
+    public void setAnnualSalary(long annualSalary) {
+        this.annualSalary = annualSalary;
+    }
 
-            String invalid = "abc";
-            int failParse = Integer.parseInt(invalid);  // Will throw NumberFormatException
-        } catch (NumberFormatException e) {
-            System.out.println("Caught NumberFormatException: " + e.getMessage());
-        }
+    public float getWorkingHours() {
+        return workingHours;
+    }
 
-        System.out.println("\nArray of mixed types using Object[]");
-        Object[] empData = { employeeId, age, monthlySalary, "Manager", true };
-        System.out.println("\nEmployee data (Object Array):");
-        for (Object data : empData) {
-            System.out.println("- " + data);
-        }
+    public void setWorkingHours(float workingHours) {
+        this.workingHours = workingHours;
+    }
+
+    public double getMonthlySalary() {return monthlySalary;}
+
+    public void setMonthlySalary(double monthlySalary) {
+        this.monthlySalary = monthlySalary;
+    }
+
+    public char getGrade() {
+        return grade;
+    }
+
+    public void setGrade(char grade) {
+        this.grade = grade;
+    }
+
+    public boolean isPermanent() {
+        return isPermanent;
+    }
+
+    public void setPermanent(boolean permanent) {
+        isPermanent = permanent;
+    }
+
+    public String toString(){
+        return "\nEmployee Id: " + employeeId + "\nDepartment code: " + departmentCode + "\nAge: " + age + "\nAnnual salary: " + annualSalary + "\nworking hours: " + workingHours + "\nmonthly salary: " + monthlySalary + "\ngrade: " + grade + "\nisPermanent: " +  isPermanent;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {return true; }
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return employeeId == employee.employeeId; 
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeId);
     }
 }

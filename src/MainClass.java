@@ -7,10 +7,11 @@ public class MainClass {
     public static void main(String[] args) {
 
         while (true) {
-            System.out.println("Main Menu:\n" +
+            System.out.println("\n\nMain Menu:\n" +
                     "1. Register User\n" +
                     "2. Show all users\n" +
-                    "3. Exit");
+                    "3. Add Employee\n" +
+                    "4. Exit");
 
             System.out.print("Enter your choice: ");
             int choice;
@@ -32,6 +33,10 @@ public class MainClass {
                     break;
 
                 case 3:
+                    RegisterService.AddEmployee();
+                    break;
+
+                case 4:
                     System.out.println("Exiting...");
                     System.exit(0);
 

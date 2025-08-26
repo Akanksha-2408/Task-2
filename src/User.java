@@ -18,7 +18,6 @@ public class User {
     }
 
     //Getters and Setters
-
     public String getEmail() {
         return email;
     }
@@ -47,41 +46,12 @@ public class User {
         Date = date;
     }
 
-    // Instanceof operator
-
-    public static void main(String[] args) {
-        System.out.println("\n\ninstanceof Operator");
-
-        Employee emp = new Employee();
-        if(emp instanceof Employee){
-            System.out.println("emp is instance of Employee");
-        }
-        else{
-            System.out.println("emp is not instance of Employee");
-        }
-
-        Object obj = emp;
-        if(obj instanceof Employee){
-            System.out.println("obj is instance of Employee");
-        }
-        else {
-            System.out.println("obj is not instance of Employee");
-        }
-
-        Object obj1 = "Hello";
-        if(obj1 instanceof String){
-            System.out.println("obj1 is instance of String");
-        }
-        else {
-            System.out.println("obj1 is not instance of String");
-        }
-
-        Object nullobj = null;
-        if(nullobj instanceof Employee){
-            System.out.println("nullobj is instance of Employee");
-        }
-        else{
-            System.out.println("nullobj is not instance of Employee");
-        }
+    @Override
+    public String toString() {
+        return "ID: " + id +
+                "\nEmail: " + email +
+                "\nPassword: " + password +
+                "\nContact: " +  contact +
+                "\nDOB: " + Date;
     }
 }

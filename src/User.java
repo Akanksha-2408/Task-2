@@ -1,9 +1,7 @@
-import java.util.Scanner;
-
 public class User {
 
-    final long id;
     static int counter = 0;
+    final long id;
     String email;
     String password;
     String contact;
@@ -18,9 +16,14 @@ public class User {
     }
 
     //Getters and Setters
+    public long getId() {
+        return id;
+    }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -28,6 +31,7 @@ public class User {
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -35,6 +39,7 @@ public class User {
     public String getContact() {
         return contact;
     }
+
     public void setContact(String contact) {
         this.contact = contact;
     }
@@ -42,16 +47,13 @@ public class User {
     public String getDate() {
         return Date;
     }
-    public void setDate(String date) {
-        Date = date;
-    }
 
     @Override
     public String toString() {
-        return "ID: " + id +
-                "\nEmail: " + email +
-                "\nPassword: " + password +
-                "\nContact: " +  contact +
-                "\nDOB: " + Date;
+        return "ID: " + getId() +
+                "\nEmail: " + getEmail() +
+                "\nPassword: " + getPassword() +
+                "\nContact: " + getContact() +
+                "\nDOB: " + getDate();
     }
 }

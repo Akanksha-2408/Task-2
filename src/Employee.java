@@ -2,28 +2,18 @@ import java.util.Objects;
 
 public class Employee {
 
-        byte employeeId;
-        short departmentCode;
-        int age;
-        long annualSalary;
-        float workingHours;
-        double monthlySalary;
-        char grade;
-        boolean isPermanent;
+    // Primitive Fields
+    private byte employeeId;
+    private short departmentCode;
+    private int age;
+    private long contact;
+    private double salary;
+    private float workingHours;
+    private char grade;
+    private boolean isPermanent;
 
-    //Constructor
-
-    public Employee() {}
-
-    public Employee(byte employeeId, short departmentCode, int age, long annualSalary, float workingHours, double monthlySalary, char grade, boolean isPermanent) {
-        this.employeeId = employeeId;
-        this.departmentCode = departmentCode;
-        this.age = age;
-        this.annualSalary = annualSalary;
-        this.workingHours = workingHours;
-        this.monthlySalary = monthlySalary;
-        this.grade = grade;
-        this.isPermanent = isPermanent;
+    // Constructor
+    public Employee() {
     }
 
     //Getters and Setters
@@ -51,12 +41,20 @@ public class Employee {
         this.age = age;
     }
 
-    public long getAnnualSalary() {
-        return annualSalary;
+    public long getContact() {
+        return contact;
     }
 
-    public void setAnnualSalary(long annualSalary) {
-        this.annualSalary = annualSalary;
+    public void setContact(long contact) {
+        this.contact = contact;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public float getWorkingHours() {
@@ -65,12 +63,6 @@ public class Employee {
 
     public void setWorkingHours(float workingHours) {
         this.workingHours = workingHours;
-    }
-
-    public double getMonthlySalary() {return monthlySalary;}
-
-    public void setMonthlySalary(double monthlySalary) {
-        this.monthlySalary = monthlySalary;
     }
 
     public char getGrade() {
@@ -89,16 +81,25 @@ public class Employee {
         isPermanent = permanent;
     }
 
-    public String toString(){
-        return "\nEmployee Id: " + employeeId + "\nDepartment code: " + departmentCode + "\nAge: " + age + "\nAnnual salary: " + annualSalary + "\nworking hours: " + workingHours + "\nmonthly salary: " + monthlySalary + "\ngrade: " + grade + "\nisPermanent: " +  isPermanent;
+    @Override
+    public String toString() {
+        return "\nEmployee Id: " + getEmployeeId() +
+                "\nDepartment code: " + getDepartmentCode() +
+                "\nAge: " + getAge() +
+                "\nSalary: " + getSalary() +
+                "\nWorking hours: " + getWorkingHours() +
+                "\nContact Number: " + getContact() +
+                "\nGrade: " + getGrade() +
+                "\nIs Permanent: " + isPermanent();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {return true; }
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+
         Employee employee = (Employee) o;
-        return employeeId == employee.employeeId; 
+        return employeeId == employee.employeeId;
     }
 
     @Override

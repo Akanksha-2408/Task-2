@@ -9,9 +9,12 @@ public class MainClass {
         while (true) {
             System.out.println("\n\nMain Menu:\n" +
                     "1. Register User\n" +
-                    "2. Show all users\n" +
-                    "3. Add Employee\n" +
-                    "4. Exit");
+                    "2. Update user data\n" +
+                    "3. Show all users\n" +
+                    "4. Add Employee\n" +
+                    "5. Update Employee Salary\n" +
+                    "6. Show all employees\n" +
+                    "7. Exit");
 
             System.out.print("Enter your choice: ");
             int choice;
@@ -29,14 +32,26 @@ public class MainClass {
                     break;
 
                 case 2:
-                    RegisterService.ShowAllUsers();
+                    RegisterService.updateUser();
                     break;
 
                 case 3:
-                    RegisterService.AddEmployee();
+                    RegisterService.ShowAllUsers();
                     break;
 
                 case 4:
+                    RegisterService.AddEmployee();
+                    break;
+
+                case 5:
+                    RegisterService.updateEmployeeSalary();
+                    break;
+
+                case 6:
+                    RegisterService.showAllEmployees();
+                    break;
+
+                case 7:
                     System.out.println("Exiting...");
                     System.exit(0);
 
